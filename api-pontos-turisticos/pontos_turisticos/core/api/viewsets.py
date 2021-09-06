@@ -1,5 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
-from rest_framework import permissions
+from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from core.models import pontos_turisticos
@@ -8,9 +9,9 @@ from .serialeizers import pontos_turisticosSerializers
 class PontoTuristicoViewsets(ModelViewSet):
 
     serializer_class = pontos_turisticosSerializers
-    permission_classes = [permissions.IsAuthenticated]  
-    
-    
+    permission_classes = [DjangoModelPermissions]
+    authentication_classes = (TokenAuthentication, )
+        
     def get_queryset(self):
         
         """

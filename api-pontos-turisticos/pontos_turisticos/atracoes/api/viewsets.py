@@ -9,4 +9,4 @@ class AtracaoViewsets(ModelViewSet):
     queryset= Atracao.objects.all()
     serializer_class = AtracaoSerializer
     permission_classes = [permissions.IsAuthenticated]
-    filter_fields = ('category', 'in_stock')
+    filter_fields = ('nome', 'descricao', )
