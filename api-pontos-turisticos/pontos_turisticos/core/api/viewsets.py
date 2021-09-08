@@ -1,3 +1,4 @@
+  
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
 from rest_framework.authentication import TokenAuthentication
@@ -14,7 +15,6 @@ class PontoTuristicoViewsets(ModelViewSet):
         
     def get_queryset(self):
         
-        """
         id = self.request.query_params.get('id',None)
         nome = self.request.query_params.get('nome',None)
         descricao = self.request.query_params.get('descricao',None)
@@ -25,7 +25,7 @@ class PontoTuristicoViewsets(ModelViewSet):
             queryset = queryset.filter(nome_iexact=nome)
         if descricao:
             queryset = queryset.filter(descricao_iexact=descricao)
-            return queryset"""
+        return queryset
 def list(self, request, **kwargs):
   return super(pontos_turisticos, self).list(request, **kwargs)
 
